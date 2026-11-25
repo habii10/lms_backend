@@ -8,6 +8,8 @@ from rest_framework.response import Response
 from course_management.models import Course
 from course_management.serializers import CourseSerializer
 
+from accounts.permissions import IsOwner
+
 
 class CourseListCreateView(APIView):
   
@@ -44,7 +46,7 @@ class CourseRetrieveUpdateDeleteView(APIView):
 
     authentication_classes =[authentication.TokenAuthentication]
 
-    permission_classes =[permissions.IsAuthenticated]
+    permission_classes =[IsOwner]
 
     def get(self,request,pk=None):
 
