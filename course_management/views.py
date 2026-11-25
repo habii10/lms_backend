@@ -75,7 +75,7 @@ class CourseRetrieveUpdateDeleteView(APIView):
             return Response(serializer_instance.errors)
 
 
-    def delete(self,request):
+    def delete(self,request,pk=None):
 
         instance = get_object_or_404(Course,id=pk)
 
